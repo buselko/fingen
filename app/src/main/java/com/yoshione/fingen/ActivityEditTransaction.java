@@ -1789,7 +1789,7 @@ public class ActivityEditTransaction extends ToolbarActivity implements
                                         }
                                         if (product.getID() > 0) {
                                             productEntry = new ProductEntry();
-                                            productEntry.setPrice(new BigDecimal(item.getPrice() / -100d));
+                                            productEntry.setPrice(new BigDecimal(item.getPrice() / -100d * (transaction.getAmountSign() ? -1 : 1)));
                                             productEntry.setQuantity(new BigDecimal(item.getQuantity()));
                                             productEntry.setCategoryID(productEntrysDAO.getLastCategoryID(product.getName()));
                                             productEntry.setTransactionID(transaction.getID());

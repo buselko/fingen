@@ -493,14 +493,15 @@ public class Transaction extends BaseModel implements IAbstractModel {
         sb.append("&s=");
         DecimalFormatSymbols symb = new DecimalFormatSymbols();
         symb.setDecimalSeparator('.');
-        sb.append(new DecimalFormat("#0.00", symb).format(getAmount().doubleValue() * -1));
+        sb.append(new DecimalFormat("#0.00", symb).format(getAmount().doubleValue() * (getAmountSign() ? 1 : -1)));
         sb.append("&fn=");
         sb.append(getFN());
         sb.append("&i=");
         sb.append(getFD());
         sb.append("&fp=");
         sb.append(getFP());
-        sb.append("&n=1");
+        sb.append("&n=");
+        sb.append(getAmountSign() ? 2 : 1);
         return sb.toString();
     }
 

@@ -157,6 +157,13 @@ public class TransactionManager {
                             transaction.setFP(0);
                         }
                         break;
+                    case "n":
+                        try {
+                            transaction.setTransactionType(Long.parseLong(keyValue[1]) == 1 ? Transaction.TRANSACTION_TYPE_EXPENSE : Transaction.TRANSACTION_TYPE_INCOME);
+                        } catch (NumberFormatException e) {
+                            transaction.setTransactionType(Transaction.TRANSACTION_TYPE_EXPENSE);
+                        }
+                        break;
                 }
             }
         }
