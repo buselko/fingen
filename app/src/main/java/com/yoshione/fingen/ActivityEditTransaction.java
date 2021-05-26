@@ -1946,8 +1946,10 @@ public class ActivityEditTransaction extends ToolbarActivity implements
 
             @Override
             public void onProductDeleted(int position) {
-                transaction.getProductEntries().remove(position);
-                mAdapterProducts.notifyDataSetChanged();
+                if (position < transaction.getProductEntries().size()) {
+                    transaction.getProductEntries().remove(position);
+                    mAdapterProducts.notifyDataSetChanged();
+                }
             }
 
             @Override
