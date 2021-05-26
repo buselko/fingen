@@ -71,10 +71,9 @@ public class ActivityModelList extends ToolbarActivity implements SearchView.OnQ
             fragmentModelList.setmModelListEventListener(new FragmentModelList.ModelListEventListener() {
                 @Override
                 public void OnModelClick(IAbstractModel abstractModel) {
-
                     if (requestCode == RequestCodes.REQUEST_CODE_SELECT_MODEL) {
                         if (getIntent().getAction() != null && (abstractModel.getClass().equals(Template.class)) && getIntent().getAction().equals(FgConst.ACT_SHOW_TEMPLATES)) {
-                            TransactionManager.createTransactionFromTemplate((Template) abstractModel, getApplicationContext());
+                            TransactionManager.createTransactionFromTemplate((Template) abstractModel, ActivityModelList.this.getApplicationContext());
                         } else {
                             Intent intent = new Intent();
                             intent.putExtra("model", abstractModel);
@@ -89,8 +88,6 @@ public class ActivityModelList extends ToolbarActivity implements SearchView.OnQ
                     .replace(R.id.container, fragmentModelList)
                     .commit();
         }
-
-//        setContentView(container);
     }
 
     @Override
