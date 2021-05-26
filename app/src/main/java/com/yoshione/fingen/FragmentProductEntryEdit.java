@@ -344,7 +344,8 @@ public class FragmentProductEntryEdit extends DialogFragment {
                 mProductEntry.setProductID(product.getID());
             }
 
-            mEntryEditListener.onProductEntryEdited(mProductEntry);
+            if (mEntryEditListener != null)
+                mEntryEditListener.onProductEntryEdited(mProductEntry);
             dismiss();
         }
     }
