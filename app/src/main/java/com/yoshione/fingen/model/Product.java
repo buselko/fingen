@@ -14,12 +14,14 @@ public class Product extends BaseModel implements IAbstractModel {
     public Product() {
         super();
         mName = "";
+        mSearchString = "";
     }
 
     public Product(long id, String name) {
         super();
         setID(id);
         mName = name;
+        mSearchString = "";
     }
 
     @Override
