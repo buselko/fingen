@@ -127,7 +127,7 @@ public class ReportBuilder {
         } catch (Exception e) {
             return new BaseNode(BaseModel.createModelByType(getModelType()), null);
         }
-        if (mEntitiesDataset.containsKey(cabbage.getID())) {
+        if (mEntitiesDataset != null && mEntitiesDataset.containsKey(cabbage.getID())) {
             if (mParentID < 0) {
                 return mEntitiesDataset.get(cabbage.getID());
             } else {
