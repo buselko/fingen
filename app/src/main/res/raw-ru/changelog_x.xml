@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="2.6.4.2-x.9" changeDate=">2021.05.27">
+        <changelogtext>Добавлена возможность загрузки электронного чека при возврате товара</changelogtext>
+        <changelogtext>Исправлено несколько различных вылетов приложения</changelogtext>
+        <changelogtext>(ivang7) Исправлено зависание приложения при загрузке товаров, содержащих апостроф</changelogtext>
+    </changelogversion>
     <changelogversion versionName="2.6.4.2-x.8" changeDate=">2021.05.20">
         <changelogtext>Исправлена ошибка при получении электронного чека из ФНС из-за изменения API</changelogtext>
         <changelogtext>Исправлено создание транзакции через json файл из приложения ФНС</changelogtext>

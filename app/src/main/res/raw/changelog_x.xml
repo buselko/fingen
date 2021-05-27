@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="2.6.4.2-x.9" changeDate=">2021.05.27">
+        <changelogtext>Add load e-receipt when return products</changelogtext>
+        <changelogtext>Bugs fixes</changelogtext>
+        <changelogtext>(ivang7) Fix freeze app when load products with apostrophe</changelogtext>
+    </changelogversion>
     <changelogversion versionName="2.6.4.2-x.8" changeDate=">2021.05.20">
         <changelogtext>Fix error when check e-receipt from FNS (changes API)</changelogtext>
         <changelogtext>Fix creating transaction by json file from FNS</changelogtext>
