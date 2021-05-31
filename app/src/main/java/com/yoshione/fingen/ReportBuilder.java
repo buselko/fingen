@@ -149,7 +149,7 @@ public class ReportBuilder {
         } catch (Exception e) {
             return new ArrayList<>();
         }
-        if (mDatesDataset.containsKey(cabbage.getID())) {
+        if (mDatesDataset != null && mDatesDataset.containsKey(cabbage.getID())) {
             return mDatesDataset.get(cabbage.getID());
         } else {
             return new ArrayList<>();
