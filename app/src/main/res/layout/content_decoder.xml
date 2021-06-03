@@ -11,9 +11,19 @@
       android:id="@+id/qrdecoderview"
       android:layout_width="match_parent"
       android:layout_height="0dp"
-      android:layout_above="@id/bottomBar"
+      android:layout_above="@id/inputClipboard"
       android:layout_alignParentStart="true"
       android:layout_alignParentTop="true"
+      />
+
+  <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/inputClipboard"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_above="@id/bottomBar"
+      android:gravity="center_horizontal"
+      android:text="@string/ttl_focus_check"
+      android:textSize="14sp"
       />
 
   <LinearLayout

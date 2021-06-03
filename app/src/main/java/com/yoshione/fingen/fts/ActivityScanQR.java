@@ -1,8 +1,6 @@
 package com.yoshione.fingen.fts;
 
 import android.Manifest;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -24,7 +22,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -33,6 +30,7 @@ import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 import com.yoshione.fingen.FGApplication;
 import com.yoshione.fingen.FgConst;
 import com.yoshione.fingen.R;
@@ -41,8 +39,6 @@ import com.yoshione.fingen.model.Transaction;
 import com.yoshione.fingen.utils.ColorUtils;
 
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 
@@ -71,38 +67,7 @@ public class ActivityScanQR extends AppCompatActivity
 
         FGApplication.getAppComponent().inject(this);
 
-        // clipboard worker copied from ActivitySmsList
-        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        ClipData data = null;
-        if (clipboard.hasPrimaryClip())
-            data = clipboard.getPrimaryClip();
-        if (data != null) {
-            ClipData.Item item = data.getItemAt(0);
-
-            String text = "";
-            if (item != null) {
-                try {
-                    text = item.getText().toString();
-                } catch (Exception e) {
-                    Toast.makeText(this, getString(R.string.err_parse_clipboard), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            Pattern pattern = Pattern.compile("^t=\\d+T\\d+&s=[\\d\\.]{4,12}&fn=\\d+&i=\\d+&fp=\\d+&n=\\d$", Pattern.CASE_INSENSITIVE);
-            Matcher matcher = pattern.matcher(text);
-
-            if (!text.equals("") && matcher.find()) {
-                final String qrCode = text;
-                // show dialog copied from FragmentTransaction
-                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                alertDialogBuilder
-                        .setTitle(R.string.ttl_confirm_action)
-                        .setMessage(R.string.msg_use_qr_from_buffer)
-                        .setPositiveButton(R.string.ok, (dialog, which) ->this.onQRCodeRead(qrCode))
-                        .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss())
-                        .show();
-            }
-        }
+        FtsHelper.checkClipboard(this, this::onQRCodeRead);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -135,7 +100,6 @@ public class ActivityScanQR extends AppCompatActivity
     // Called when a QR is decoded
     // "text" : the text encoded in QR
     public void onQRCodeRead(String text) {
-//    resultTextView.setText(text);
         Transaction transaction = getIntent().getParcelableExtra("transaction");
         transaction = TransactionManager.createTransactionFromQR(transaction, text, getApplicationContext());
         Intent intent = new Intent();
@@ -175,6 +139,7 @@ public class ActivityScanQR extends AppCompatActivity
         View content = getLayoutInflater().inflate(R.layout.content_decoder, mainLayout, true);
 
         qrCodeReaderView = content.findViewById(R.id.qrdecoderview);
+        TextInputEditText inputClipboard = content.findViewById(R.id.inputClipboard);
         CheckBox checkBoxFlashlight = content.findViewById(R.id.checkboxFlashlight);
         CheckBox checkBoxAutoFocus = content.findViewById(R.id.checkboxAutoFocus);
         Button buttonGallery = content.findViewById(R.id.buttonGallery);
@@ -239,6 +204,14 @@ public class ActivityScanQR extends AppCompatActivity
             try {
                 mCameraSource.autoFocus(null);
             } catch (Exception ignored) { }
+        });
+        inputClipboard.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                inputClipboard.clearFocus();
+
+                if (!FtsHelper.checkClipboard(this, this::onQRCodeRead))
+                    Toast.makeText(this, R.string.msg_qr_no_found_in_buffer, Toast.LENGTH_SHORT).show();
+            }
         });
         checkBoxAutoFocus.setOnCheckedChangeListener((compoundButton, isChecked) -> {
             mCameraSource.setFocusMode(isChecked ? Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE : Camera.Parameters.FOCUS_MODE_MACRO);

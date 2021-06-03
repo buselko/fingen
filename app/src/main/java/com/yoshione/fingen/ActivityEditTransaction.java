@@ -1624,6 +1624,17 @@ public class ActivityEditTransaction extends ToolbarActivity implements
         mTextViewFD.setText(String.valueOf(transaction.getFD()));
         mTextViewFP.setText(String.valueOf(transaction.getFP()));
 
+        View.OnFocusChangeListener focusListener = (v, hasFocus) -> {
+            if (hasFocus) {
+                FtsHelper.checkClipboard(this, (qrCode) -> {
+                    transaction = TransactionManager.createTransactionFromQR(transaction, qrCode, getApplicationContext());
+                    getIntent().putExtra(LOAD_PRODUCTS, LP_QUERY);
+                    initUI();
+                });
+            }
+        };
+        mTextViewFN.setOnFocusChangeListener(focusListener);
+
         mTextViewFN.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

@@ -2040,6 +2040,10 @@
 
     <!-- 26. ScanQR -->
     <!-- Messages -->
+    <string name="ttl_focus_check">Нажмите, чтобы проверить буфер на содержание QR-кода</string>
+
+    <!-- 26. ScanQR -->
+    <!-- Messages -->
     <string name="msg_camera_permission_was_granted" formatted="false">Доступ к камере предоставлен</string>
 
     <!-- 26. ScanQR -->
@@ -2057,6 +2061,10 @@
     <!-- 26. ScanQR -->
     <!-- Messages -->
     <string name="msg_use_qr_from_buffer" formatted="false">В буфере обмена обнаружен QR-код использовать его?</string>
+
+    <!-- 26. ScanQR -->
+    <!-- Messages -->
+    <string name="msg_qr_no_found_in_buffer" formatted="false">QR-код в буфере обмена не найден</string>
 
     <!-- 26. ScanQR -->
     <!-- Entities -->

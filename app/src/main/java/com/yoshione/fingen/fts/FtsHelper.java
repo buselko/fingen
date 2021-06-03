@@ -1,5 +1,7 @@
 package com.yoshione.fingen.fts;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -8,11 +10,16 @@ import android.content.pm.Signature;
 import android.text.format.DateFormat;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.preference.PreferenceManager;
 
 import com.yoshione.fingen.FGApplication;
 import com.yoshione.fingen.FgConst;
+import com.yoshione.fingen.R;
 import com.yoshione.fingen.fts.api.LoginApi;
 import com.yoshione.fingen.fts.api.TicketApi;
 import com.yoshione.fingen.fts.models.login.PhoneLoginRequest;
@@ -21,6 +28,8 @@ import com.yoshione.fingen.model.Transaction;
 
 import java.io.IOException;
 import java.security.MessageDigest;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 
@@ -168,5 +177,45 @@ public class FtsHelper {
                 .remove(FgConst.PREF_FTS_REFRESH_TOKEN)
                 .remove(FgConst.PREF_FTS_SESSION_ID)
                 .apply();
+    }
+
+    public interface OnCheckClipboardListener {
+        void OnCheckClipboard(String qrCode);
+    }
+
+    public static boolean checkClipboard(@NonNull Context context, @NonNull OnCheckClipboardListener listener) {
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData data = null;
+        if (clipboard.hasPrimaryClip())
+            data = clipboard.getPrimaryClip();
+        if (data != null) {
+            ClipData.Item item = data.getItemAt(0);
+
+            String text = "";
+            if (item != null) {
+                try {
+                    text = item.getText().toString();
+                } catch (Exception e) {
+                    Toast.makeText(context, context.getString(R.string.err_parse_clipboard), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            Pattern pattern = Pattern.compile("^t=\\d+T\\d+&s=[\\d\\.]{4,12}&fn=\\d+&i=\\d+&fp=\\d+&n=\\d$", Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(text);
+
+            if (!text.equals("") && matcher.find()) {
+                final String qrCode = text;
+                // show dialog copied from FragmentTransaction
+                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                alertDialogBuilder
+                        .setTitle(R.string.ttl_confirm_action)
+                        .setMessage(R.string.msg_use_qr_from_buffer)
+                        .setPositiveButton(R.string.ok, (dialog, which) -> listener.OnCheckClipboard(qrCode))
+                        .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss())
+                        .show();
+                return true;
+            }
+        }
+        return false;
     }
 }

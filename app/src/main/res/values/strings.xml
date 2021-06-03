@@ -2040,6 +2040,10 @@
 
     <!-- 26. ScanQR -->
     <!-- Messages -->
+    <string name="ttl_focus_check">Focus to check the clipboard</string>
+
+    <!-- 26. ScanQR -->
+    <!-- Messages -->
     <string name="msg_camera_permission_was_granted" formatted="false">Camera permission was granted</string>
 
     <!-- 26. ScanQR -->
@@ -2057,6 +2061,10 @@
     <!-- 26. ScanQR -->
     <!-- Messages -->
     <string name="msg_use_qr_from_buffer" formatted="false">Has the clipboard detected a QR code to use it?</string>
+
+    <!-- 26. ScanQR -->
+    <!-- Messages -->
+    <string name="msg_qr_no_found_in_buffer" formatted="false">QR code has not in the clipboard</string>
 
     <!-- 26. ScanQR -->
     <!-- Entities -->
