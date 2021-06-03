@@ -1886,7 +1886,8 @@ public class ActivityEditTransaction extends ToolbarActivity implements
         try {
             FTSJsonToTransaction ftsJsonToTransaction = new FTSJsonToTransaction(getApplicationContext(), transaction, jsonAsString);
             transaction = ftsJsonToTransaction.generateTransaction(true);
-            setPayeeName(ftsJsonToTransaction.getPayerName());
+            if ((viewPager.getCurrentItem() == 0) && mPayeeName != null && mPayeeName.isEmpty())
+                setPayeeName(ftsJsonToTransaction.getPayerName());
             getIntent().removeExtra(LOAD_PRODUCTS);
             isErrorLoadingProducts = false;
             initUI();
