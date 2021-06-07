@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="2.6.4.2-x.10" changeDate=">2021.06.07">
+        <changelogtext>Add button for check QR-code in clipboard (for Android 10)</changelogtext>
+        <changelogtext>Fix replace payee when import json from FNS application</changelogtext>
+        <changelogtext>Fix crash in report builder</changelogtext>
+    </changelogversion>
     <changelogversion versionName="2.6.4.2-x.9" changeDate=">2021.05.27">
         <changelogtext>Add load e-receipt when return products</changelogtext>
         <changelogtext>Bugs fixes</changelogtext>

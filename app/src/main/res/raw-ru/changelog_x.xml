@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="2.6.4.2-x.10" changeDate=">2021.06.07">
+        <changelogtext>Добавлена кнопка для проверки буфера обмена (для Android 10)</changelogtext>
+        <changelogtext>Исправлена замена получателя при импорте из приложения ФНС</changelogtext>
+        <changelogtext>Исправлено падение при формировании отчета</changelogtext>
+    </changelogversion>
     <changelogversion versionName="2.6.4.2-x.9" changeDate=">2021.05.27">
         <changelogtext>Добавлена возможность загрузки электронного чека при возврате товара</changelogtext>
         <changelogtext>Исправлено несколько различных вылетов приложения</changelogtext>
