@@ -183,7 +183,7 @@ public class FtsHelper {
         void OnCheckClipboard(String qrCode);
     }
 
-    public static boolean checkClipboard(@NonNull Context context, @NonNull OnCheckClipboardListener listener) {
+    public static boolean checkClipboard(@NonNull Context context, boolean showDialog, @NonNull OnCheckClipboardListener listener) {
         ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData data = null;
         if (clipboard.hasPrimaryClip())
@@ -205,14 +205,17 @@ public class FtsHelper {
 
             if (!text.equals("") && matcher.find()) {
                 final String qrCode = text;
-                // show dialog copied from FragmentTransaction
-                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                alertDialogBuilder
-                        .setTitle(R.string.ttl_confirm_action)
-                        .setMessage(R.string.msg_use_qr_from_buffer)
-                        .setPositiveButton(R.string.ok, (dialog, which) -> listener.OnCheckClipboard(qrCode))
-                        .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss())
-                        .show();
+                if (showDialog) {
+                    // show dialog copied from FragmentTransaction
+                    final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                    alertDialogBuilder
+                            .setTitle(R.string.ttl_confirm_action)
+                            .setMessage(R.string.msg_use_qr_from_buffer)
+                            .setPositiveButton(R.string.ok, (dialog, which) -> listener.OnCheckClipboard(qrCode))
+                            .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss())
+                            .show();
+                } else
+                    listener.OnCheckClipboard(qrCode);
                 return true;
             }
         }

@@ -1626,7 +1626,7 @@ public class ActivityEditTransaction extends ToolbarActivity implements
 
         View.OnFocusChangeListener focusListener = (v, hasFocus) -> {
             if (hasFocus) {
-                FtsHelper.checkClipboard(this, (qrCode) -> {
+                FtsHelper.checkClipboard(this, true, (qrCode) -> {
                     transaction = TransactionManager.createTransactionFromQR(transaction, qrCode, getApplicationContext());
                     getIntent().putExtra(LOAD_PRODUCTS, LP_QUERY);
                     initUI();

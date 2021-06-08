@@ -2040,7 +2040,7 @@
 
     <!-- 26. ScanQR -->
     <!-- Messages -->
-    <string name="ttl_focus_check">Нажмите, чтобы проверить буфер на содержание QR-кода</string>
+    <string name="ttl_focus_check">Проверить буфер</string>
 
     <!-- 26. ScanQR -->
     <!-- Messages -->

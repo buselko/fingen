@@ -30,7 +30,6 @@ import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputEditText;
 import com.yoshione.fingen.FGApplication;
 import com.yoshione.fingen.FgConst;
 import com.yoshione.fingen.R;
@@ -67,7 +66,7 @@ public class ActivityScanQR extends AppCompatActivity
 
         FGApplication.getAppComponent().inject(this);
 
-        FtsHelper.checkClipboard(this, this::onQRCodeRead);
+        FtsHelper.checkClipboard(this, true, this::onQRCodeRead);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -139,9 +138,9 @@ public class ActivityScanQR extends AppCompatActivity
         View content = getLayoutInflater().inflate(R.layout.content_decoder, mainLayout, true);
 
         qrCodeReaderView = content.findViewById(R.id.qrdecoderview);
-        TextInputEditText inputClipboard = content.findViewById(R.id.inputClipboard);
         CheckBox checkBoxFlashlight = content.findViewById(R.id.checkboxFlashlight);
         CheckBox checkBoxAutoFocus = content.findViewById(R.id.checkboxAutoFocus);
+        Button buttonClipboard = content.findViewById(R.id.buttonClipboard);
         Button buttonGallery = content.findViewById(R.id.buttonGallery);
 
         barcodeDetector = new BarcodeDetector.Builder(getApplicationContext())
@@ -205,14 +204,6 @@ public class ActivityScanQR extends AppCompatActivity
                 mCameraSource.autoFocus(null);
             } catch (Exception ignored) { }
         });
-        inputClipboard.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus) {
-                inputClipboard.clearFocus();
-
-                if (!FtsHelper.checkClipboard(this, this::onQRCodeRead))
-                    Toast.makeText(this, R.string.msg_qr_no_found_in_buffer, Toast.LENGTH_SHORT).show();
-            }
-        });
         checkBoxAutoFocus.setOnCheckedChangeListener((compoundButton, isChecked) -> {
             mCameraSource.setFocusMode(isChecked ? Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE : Camera.Parameters.FOCUS_MODE_MACRO);
             checkBoxAutoFocus.setCompoundDrawablesWithIntrinsicBounds(0, isChecked ? R.drawable.ic_scan_qr_autofocus : R.drawable.ic_scan_qr_focus, 0, 0);
@@ -228,6 +219,12 @@ public class ActivityScanQR extends AppCompatActivity
         } else {
             checkBoxFlashlight.setVisibility(View.GONE);
         }
+        buttonClipboard.setOnClickListener(view -> {
+            buttonClipboard.clearFocus();
+
+            if (!FtsHelper.checkClipboard(this, false, this::onQRCodeRead))
+                Toast.makeText(this, R.string.msg_qr_no_found_in_buffer, Toast.LENGTH_SHORT).show();
+        });
         buttonGallery.setOnClickListener(view -> {
             Intent i = new Intent(
                     Intent.ACTION_PICK,
