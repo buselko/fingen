@@ -2237,4 +2237,44 @@
     <!-- 28. EditorConstructor -->
     <!-- Actions -->
     <string name="act_tune_editor" formatted="false">Настроить редактор</string>
+    <string name="list_notification">Список уведомлений</string>
+    <string name="create_notification">Начать отслеживать уведомления</string>
+    <string name="remove_notification">Очистить все уведомления</string>
+    <string name="signOut">Выйти</string>
+    <string name="text_successes_auth">Успешно авторизовались в гугл аккаунте</string>
+    <string name="text_auth">Авторизуйтесь в гугл аккаунте</string>
+    <string name="welcome">Добро пожаловать</string>
+    <string name="name">name</string>
+    <string name="email">email</string>
+    <string name="sign_out">Выйти</string>
+    <string name="handle_applications">Выбрать отслеживаемые приложения</string>
+    <string name="textview">TextView</string>
+    <string name="box">Применить</string>
+    <string name="home_button">На главную</string>
+
+    <string name="addPatterns">Добавить Примеры</string>
+    <string name="add_template">Добавить шаблон</string>
+    <string name="back_in_AddPatterns">Назад к списку приложений</string>
+    <string name="textEditViewPatterns">Вставьте шаблон из смс или уведомления от приложения</string>
+    <string name="WelcomeMessage">Добро пожаловать</string>
+    <string name="password">пароль</string>
+    <string name="sign_in">Войти</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="email_field">email адресс</string>
+    <string name="password_recovery">Восстановление пароля</string>
+
+
+    <string name="we_send_the_code_to_your_email">Мы отправили код вам на почту</string>
+    <string name="confirmEnterCode">Подтвердить</string>
+    <string name="Balance">Баланс</string>
+    <string name="addBalance">Добавить баланс</string>
+    <string name="Currency">Введите валюту, обязательно 3 больших буквы</string>
+    <string name="example_write_currency">PLN или USD или GEL или EUR</string>
+    <string name="balance_operation">Операции с Балансом</string>
+    <string name="write_balance_you_card">Введите баланс вашего счёта</string>
+    <string name="select_need_action">Выберите операцию</string>
+    <string name="textBalanceWarning">При создании баланса, валюта, которую вы укажете будет основной и все остальные операции будут конвертироваться в неё. Баланс можно создать только в 1 валюте</string>
+    <string name="googleButtonHomeMenu">Google Аккаунт</string>
+    <string name="title_list_installed_apps">Installed Apps</string>
+    <string name="homeMenuMain2">Главное меню</string>
 </resources>

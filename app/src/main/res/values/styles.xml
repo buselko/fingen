@@ -334,4 +334,5 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">?listItemBackground</item>
     </style>
+
 </resources>

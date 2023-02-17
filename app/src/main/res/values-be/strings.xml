@@ -2108,4 +2108,43 @@
     <!-- 28. EditorConstructor -->
     <!-- Actions -->
     <string name="act_tune_editor" formatted="false">Настроить редактор</string>
+    <string name="list_notification">List of notifications</string>
+    <string name="create_notification">Start tracking notifications</string>
+    <string name="remove_notification">Clear all notifications</string>
+    <string name="signOut">Log off</string>
+    <string name="text_successes_auth">Successfully logged into Google account</string>
+    <string name="text_auth">Sign in with google account</string>
+    <string name="welcome">Welcome</string>
+    <string name="name">name</string>
+    <string name="email">email</string>
+    <string name="sign_out">Log off</string>
+    <string name="handle_applications">Select monitored apps</string>
+    <string name="textview">TextView</string>
+    <string name="box">Apply</string>
+    <string name="home_button">To the main</string>
+
+    <string name="addPatterns">Add Examples</string>
+    <string name="add_template">Add template</string>
+    <string name="back_in_AddPatterns">Back to application list</string>
+    <string name="textEditViewPatterns">Insert template from SMS or app notifications</string>
+    <string name="WelcomeMessage">Welcome</string>
+    <string name="password">password</string>
+    <string name="sign_in">To come in</string>
+    <string name="sign_up">Registration</string>
+    <string name="email_field">email address</string>
+    <string name="password_recovery">Password recovery</string>
+
+    <string name="we_send_the_code_to_your_email">We have sent the code to your email</string>
+    <string name="confirmEnterCode">Confirm</string>
+    <string name="Balance">Balance</string>
+    <string name="addBalance">Add balance</string>
+    <string name="Currency">Enter the currency, 3 capital letters are required</string>
+    <string name="example_write_currency">PLN or USD or GEL or EUR</string>
+    <string name="balance_operation">Operations with balance</string>
+    <string name="write_balance_you_card">Enter your account balance</string>
+    <string name="select_need_action">Choose an operation</string>
+    <string name="textBalanceWarning">When creating a balance, the currency you specify will be the main one and all other transactions will be converted to it. Balance can only be created in 1 currency</string>
+    <string name="googleButtonHomeMenu">Google Account</string>
+    <string name="title_list_installed_apps">Installed Apps</string>
+    <string name="homeMenuMain2">Главное меню</string>
 </resources>

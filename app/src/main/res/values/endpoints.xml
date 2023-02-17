@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="newVersionDatabase" translatable="false">37</string>
+
+    <string name="endpoint_addPattern" translatable="false">/add/pattern</string>
+    <string name="endpoint_addPatterns" translatable="false">/add/patterns</string>
+    <string name="endpoint_sendNotify" translatable="false">/receiver/notification</string>
+    <string name="endpoint_registration" translatable="false">/registration</string>
+    <string name="endpoint_refresh_token" translatable="false">/update/access_token</string>
+    <string name="endpoint_login" translatable="false">/authentication</string>
+    <string name="endpoint_check_login" translatable="false">/authentication/check_login</string>
+    <string name="endpoint_logout" translatable="false">/authentication/delete/auth_tokens</string>
+    <string name="endpoint_get_notifications" translatable="false">/receiver/notification/get</string>
+    <string name="prefixApi" translatable="false">/api/v1</string>
+    <string name="endpoint_confirm" translatable="false">/registration/confirmCode</string>
+    <string name="endpoint_get_balance" translatable="false">/balance/get</string>
+    <string name="endpoint_create_balance" translatable="false">/balance/update</string>
+    <string name="endpoint_google_auth" translatable="false">/add/googleAuth</string>
+<!--    <string name="server_url" translatable="false">https://hooks.busel.co/listener</string>-->
+    <string name="server_url" translatable="false">http://10.0.2.2:5000</string>
+<!--    <string name="server_url" translatable="false">http://192.168.43.132:5000</string>-->
+</resources>

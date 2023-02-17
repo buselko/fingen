@@ -24,7 +24,7 @@
 #Butterknife
 -keepattributes EnclosingMethod
 # Retain generated class which implement ViewBinder.
--keep public class * implements butterknife.internal.ViewBinder { public <init>(); }
+#-keep public class * implements butterknife.internal.ViewBinder { public <init>(); }
 # Prevent obfuscation of types which use ButterKnife annotations since the simple name
 # is used to reflectively look up the generated ViewBinder.
 -keep class butterknife.*
@@ -35,17 +35,17 @@
 
 #Billing
 -keep class com.android.vending.billing.**
--assumenosideeffects class org.solovyev.android.checkout.Billing {
-    public static void debug(...);
-    public static void warning(...);
-    public static void error(...);
-}
--assumenosideeffects class org.solovyev.android.checkout.Check {
-    static *;
-}
+#-assumenosideeffects class org.solovyev.android.checkout.Billing {
+#    public static void debug(...);
+#    public static void warning(...);
+#    public static void error(...);
+#}
+#-assumenosideeffects class org.solovyev.android.checkout.Check {
+#    static *;
+#}
 -keep class com.android.vending.billing.**
 -keepattributes *Annotation*
--keep public class com.android.vending.licensing.ILicensingService
+#-keep public class com.android.vending.licensing.ILicensingService
 
 #MP Android chart
 -keep class com.github.mikephil.charting.** { *; }
@@ -71,10 +71,6 @@
 }
 -keep enum org.greenrobot.eventbus.ThreadMode { *; }
 
-#Crashlytics
--keepattributes SourceFile,LineNumberTable
--keep class com.crashlytics.** { *; }
--dontwarn com.crashlytics.**
 
 #Dropbox OkHttp and Servlet optional dependencies
 -dontwarn okio.**
@@ -87,7 +83,7 @@
 # Platform calls Class.forName on types which do not exist on Android to determine platform.
 -dontnote retrofit2.Platform
 # Platform used when running on Java 8 VMs. Will not be used at runtime.
--dontwarn retrofit2.Platform$Java8
+#-dontwarn retrofit2.Platform$Java8
 # Retain generic type information for use by reflection by converters and adapters.
 -keepattributes Signature
 # Retain declared checked exceptions for use by a Proxy instance.

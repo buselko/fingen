@@ -11,3 +11,4 @@ build
 /yoshione.jks
 /app/google-services.json
 /app/fabric.properties
+.DS_Store

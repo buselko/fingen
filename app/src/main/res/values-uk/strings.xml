@@ -2108,4 +2108,43 @@
     <!-- 28. EditorConstructor -->
     <!-- Actions -->
     <string name="act_tune_editor" formatted="false">Настроить редактор</string>
+    <string name="list_notification">Lista powiadomień</string>
+    <string name="create_notification">Rozpocznij powiadomienia o śledzeniu</string>
+    <string name="remove_notification">Wyczyść wszystkie powiadomienia</string>
+    <string name="signOut">Wychodzić</string>
+    <string name="text_successes_auth">Pomyślnie zalogowano się na konto Google</string>
+    <string name="text_auth">Zaloguj się za pomocą konta Google</string>
+    <string name="welcome">Powitanie</string>
+    <string name="name">nazwa</string>
+    <string name="email">e-mail</string>
+    <string name="sign_out">Wychodzić</string>
+    <string name="handle_applications">Wybierz monitorowane aplikacje</string>
+    <string name="textview">Widok tekstu</string>
+    <string name="box">Stosować</string>
+    <string name="home_button">Do głównej</string>
+
+    <string name="addPatterns">Dodaj przykłady</string>
+    <string name="add_template">Dodaj szablon</string>
+    <string name="back_in_AddPatterns">Powrót do listy aplikacji</string>
+    <string name="textEditViewPatterns">Wstaw szablon z powiadomień SMS lub aplikacji</string>
+    <string name="WelcomeMessage">Powitanie</string>
+    <string name="password">hasło</string>
+    <string name="sign_in">Wejść</string>
+    <string name="sign_up">Rejestracja</string>
+    <string name="email_field">adres e-mail</string>
+    <string name="password_recovery">Odzyskiwanie hasła</string>
+
+    <string name="we_send_the_code_to_your_email">Wysłaliśmy kod na Twój e-mail</string>
+    <string name="confirmEnterCode">Potwierdzać</string>
+    <string name="Balance">Saldo</string>
+    <string name="addBalance">Dodaj równowagę</string>
+    <string name="Currency">Wprowadź walutę, wymagane są 3 wielkie litery</string>
+    <string name="example_write_currency">PLN lub USD lub GEL lub EUR</string>
+    <string name="balance_operation">Operacje z równowagą</string>
+    <string name="write_balance_you_card">Wprowadź saldo konta</string>
+    <string name="select_need_action">Wybierz operację</string>
+    <string name="textBalanceWarning">Podczas tworzenia salda wybrana przez Ciebie waluta będzie walutą główną i wszystkie inne transakcje zostaną na nią przeliczone. Saldo można utworzyć tylko w 1 walucie</string>
+    <string name="googleButtonHomeMenu">Konto Google</string>
+    <string name="title_list_installed_apps">Zainstalowane aplikacje</string>
+    <string name="homeMenuMain2">Home menu</string>
 </resources>

@@ -64,7 +64,7 @@ public class ActivityAbout extends ToolbarActivity {
                 new LicensesDialog.Builder(ActivityAbout.this)
                         .setNotices(R.raw.license)
                         .build()
-                        .showAppCompat();
+                        .show();
             }
         });
 

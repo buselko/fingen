@@ -43,7 +43,7 @@ public class ActivitySettings extends PinCompatActivity  implements
     @SuppressLint("PrivateResource")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        switch (Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("theme", "0"))) {
+        switch (Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("theme", "0"))) {
             case ActivityMain.THEME_LIGHT : setTheme(R.style.AppThemeLight); break;
             case ActivityMain.THEME_DARK : setTheme(R.style.AppThemeDark); break;
             default: setTheme(R.style.AppThemeLight); break;

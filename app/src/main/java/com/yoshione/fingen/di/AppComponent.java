@@ -3,6 +3,7 @@ package com.yoshione.fingen.di;
 import android.content.Context;
 
 import com.yoshione.fingen.ActivityEditTransaction;
+import com.yoshione.fingen.ActivityListApps;
 import com.yoshione.fingen.ActivityMain;
 import com.yoshione.fingen.ActivityPro;
 import com.yoshione.fingen.FragmentAccounts;

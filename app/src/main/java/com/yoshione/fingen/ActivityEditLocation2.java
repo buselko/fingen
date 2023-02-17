@@ -245,8 +245,9 @@ public class ActivityEditLocation2 extends ToolbarActivity implements OnCameraCh
     }
 
     @Override
-    public void onMapMarkerClick(AirMapMarker<?> airMarker) {
+    public boolean onMapMarkerClick(AirMapMarker<?> airMarker) {
 
+        return false;
     }
 
     @Override
